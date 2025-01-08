@@ -14,16 +14,26 @@ class Program
     } // end 1: BinaryTree
 */
     //2: Fibonacci
-    {
+    /*
     Fibonacci fibonacci = new Fibonacci();
     fibonacci.Iteractive(5);
     fibonacci.Recursive(5);
     fibonacci.ShowNumber(10);
-      }
-      
-} // end of Main
+      */
 
-public class BinaryTree{
+    //3: Sorting
+    Sorting sorting = new Sorting();
+
+    int[] values = { 3, 4, 5, 2, 1, 6, 9, 8, 7 };
+
+    int[] sortedValues = {};
+
+    sortedValues = sorting.BubbleSort(values);
+    Console.WriteLine("BubbleSort: "+string.Join(",", sortedValues));
+    
+  }
+  
+    public class BinaryTree{
   public class Node{
     public int value;
     public Node left;
@@ -131,6 +141,38 @@ public class Fibonacci{
   } 
   
 } //end Class Fibonacci
+
+public class Sorting{
+  public int[] BubbleSort(int[]values){
+
+    int length = values.Length;
+
+    for (int i = 0; i < length-1; i++)
+    {
+      for (int j = 0; j < length-i-1; j++){
+         if (values[j] > values[j+1])
+           values = swap(values, j,j+1);
+        } // end for j
+    } //end for i
+    return values;
+  }
+
+  private int[] swap(int[] values, int index1, int index2){
+    try{
+    
+    int temp = values[index1];
+    values[index1] = values[index2];
+    values[index2] = temp;
+      return values;
+    }
+    catch(IndexOutOfRangeException e){
+      Console.WriteLine("Index out of range: "+e.Message);
+      return values;
+    }
+    
+  }
+}  
+
 } //end Program
 
 
