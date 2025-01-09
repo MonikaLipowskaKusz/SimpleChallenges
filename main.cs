@@ -28,8 +28,10 @@ class Program
 
     int[] sortedValues = {};
 
-    sortedValues = sorting.BubbleSort(values);
-    Console.WriteLine("BubbleSort: "+string.Join(",", sortedValues));
+    //sortedValues = sorting.BubbleSort(values);
+    sortedValues = sorting.InsertSort(values);
+    
+    Console.WriteLine("Sorted: "+string.Join(",", sortedValues));
     
   }
   
@@ -156,7 +158,22 @@ public class Sorting{
     } //end for i
     return values;
   }
-
+  
+  public int[] InsertSort(int[]values){
+    int length = values.Length;
+    
+    for (int i = 0; i < length-1; i++)
+    {
+      for (int j = i+1; j > 0; j--){
+         if (values[j] < values[j-1])
+           values = swap(values, j,j-1);
+        } // end for j
+    } //end for i
+    
+    return values;
+    }
+  
+  
   private int[] swap(int[] values, int index1, int index2){
     try{
     

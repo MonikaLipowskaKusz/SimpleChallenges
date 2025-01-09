@@ -5,7 +5,7 @@ Challengers:
 2. Fibonacci (iteractive, recursive)
 
 Ideas:
-- Sorting (bubble sort, Insert Sort, Bucket Sort, Shell Sort, Quick Sort)
+- Sorting (bubble sort, Insert Sort, Bucket Sort, Shell Sort, Quick Sort, Heap Sort)
 - Catching exceptions
 - Stack
 - NWD, NWW
