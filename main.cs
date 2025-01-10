@@ -1,4 +1,5 @@
 using System;
+using SimpleChallenges;
 
 class Program
 {
@@ -73,19 +74,16 @@ class Program
 
   public void ShowMeTree(){
     if (this.root == null){
-      Console.WriteLine("Tree is empty ");
       return;
     }
-    
-    Console.WriteLine("Root value is: " + root.value);
+  
     Traverse(this.root);
   }
 
   // go through tree (traverse) and show values, from left to right (so in numeric order)
   public void Traverse(Node node){
     if (node != null){
-      Traverse(node.left);
-    Console.WriteLine(node.value);        Traverse(node.right);
+      Traverse(node.left);            Traverse(node.right);
     }
   }
   
@@ -108,8 +106,7 @@ public class Fibonacci{
     int currentNumber = 0;
 
     for (int i = 0; i < length; i++ ){
- Console.WriteLine(currentNumber);
-      // we need to make sure first number (index 0) is set corectly
+// we need to make sure first number (index 0) is set corectly
       if (i < 1) {
         previousNumber = 0;
         currentNumber = 1;
@@ -123,7 +120,7 @@ public class Fibonacci{
   }
   public void Recursive(int length){
     for (int i = 0; i < length;i++){
-    Console.WriteLine(getRecursiveNumber(i));
+      Console.WriteLine(getRecursiveNumber(i));
       }
 }
 
@@ -144,52 +141,6 @@ public class Fibonacci{
   
 } //end Class Fibonacci
 
-public class Sorting{
-  public int[] BubbleSort(int[]values){
-
-    int length = values.Length;
-
-    for (int i = 0; i < length-1; i++)
-    {
-      for (int j = 0; j < length-i-1; j++){
-         if (values[j] > values[j+1])
-           values = swap(values, j,j+1);
-        } // end for j
-    } //end for i
-    return values;
-  }
-  
-  public int[] InsertSort(int[]values){
-    int length = values.Length;
-    
-    for (int i = 0; i < length-1; i++)
-    {
-      for (int j = i+1; j > 0; j--){
-         if (values[j] < values[j-1])
-           values = swap(values, j,j-1);
-        } // end for j
-    } //end for i
-    
-    return values;
-    }
-  
-  
-  private int[] swap(int[] values, int index1, int index2){
-    try{
-    
-    int temp = values[index1];
-    values[index1] = values[index2];
-    values[index2] = temp;
-      return values;
-    }
-    catch(IndexOutOfRangeException e){
-      Console.WriteLine("Index out of range: "+e.Message);
-      return values;
-    }
-    
-  }
-}  
 
 } //end Program
-
 
