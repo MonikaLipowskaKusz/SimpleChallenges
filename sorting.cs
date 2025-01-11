@@ -1,4 +1,5 @@
 using System;
+using System.Linq;
 
 namespace SimpleChallenges{
 public class Sorting{
@@ -28,7 +29,31 @@ public class Sorting{
     } //end for i
     
     return values;
+    } // end methodnInsertSort
+
+  public int[] BucketSort(int[] values, int min, int max){
+    int length = values.Length;
+    int[] sorted = {}; 
+    int[] buckets = new int[max-min+1];
+    
+    for (int i = 0; i < length; i++){
+      buckets[values[i]]++;
     }
+
+  
+    for (int i = 0; i < buckets. Length-1; i++){
+      if (buckets[i] == 0){
+        continue;
+      }
+
+      for (int j = 0; j < buckets[i]; j++){
+          sorted.Append(i);
+      }
+      
+    }
+    
+    return sorted;
+  }
   
   
   private int[] swap(int[] values, int index1, int index2){

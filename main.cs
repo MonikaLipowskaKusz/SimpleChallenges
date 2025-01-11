@@ -30,7 +30,9 @@ class Program
     int[] sortedValues = {};
 
     //sortedValues = sorting.BubbleSort(values);
-    sortedValues = sorting.InsertSort(values);
+     //sortedValues = sorting.InsertSort(values);
+    sortedValues =  sorting.BucketSort(values, 1, 9);
+
     
     Console.WriteLine("Sorted: "+string.Join(",", sortedValues));
     
