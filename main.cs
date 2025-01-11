@@ -25,13 +25,15 @@ class Program
     //3: Sorting
     Sorting sorting = new Sorting();
 
-    int[] values = { 3, 4, 5, 2, 1, 6, 9, 8, 7 };
+    int[] values = { 3, 4, 5, 2, 1, 6, 9, 8, 7};
 
     int[] sortedValues = {};
 
     //sortedValues = sorting.BubbleSort(values);
      //sortedValues = sorting.InsertSort(values);
-    sortedValues =  sorting.BucketSort(values, 1, 9);
+    //sortedValues =  sorting.BucketSort(values, 1, 9);
+    sortedValues =  sorting.ShellSort(values);
+    
 
     
     Console.WriteLine("Sorted: "+string.Join(",", sortedValues));
