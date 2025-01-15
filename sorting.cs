@@ -3,11 +3,61 @@ using System.Linq;
 
 namespace SimpleChallenges{
 public class Sorting{
+  public enum SortingMethods{
+    InsertSort,
+    BubbleSort,
+    BucketSort,
+    ShellSort1,
+    ShellSort2
+  }
+
+  private int[] values = { 3, 4, 5, 2, 1, 6, 9, 8, 7};
+
+  private int[] sortedValues = {};
+
+  public Sorting(){
+    Console.WriteLine("Welcome to Sorting methods");
+    Console.WriteLine("We have few to choose from:");
+    foreach (SortingMethods method in Enum.GetValues(typeof(SortingMethods))){
+    Console.WriteLine((int)method + ". " + method);  
+    }
+
+    Console.WriteLine("Choose from above by number");
+
+    string line = Console.ReadLine();
+
+    //todo: add idiot proof reading
+
+    int number = Int32.Parse(line);
+
+ Console.WriteLine("Unsorted: "+string.Join(",", this.values));
+        
+    switch ((SortingMethods)number)
+    {
+      case SortingMethods.BubbleSort:
+      sortedValues = BubbleSort(values);
+        break;
+      case SortingMethods.InsertSort:
+      sortedValues = InsertSort(values);
+        break;
+      case SortingMethods.BucketSort:
+      sortedValues = BucketSort(values, 1, 9);
+        break;
+      case SortingMethods.ShellSort1:
+      sortedValues = ShellSort(values);
+      break;
+      case SortingMethods.ShellSort2:
+      sortedValues = ShellSort2(values);
+        break;
+    }
+
+    Console.WriteLine("Sorted: "+string.Join(",", sortedValues));
+  } // end constructor
+
   public int[] BubbleSort(int[]values){
-
+  
     int length = values.Length;
-
-    for (int i = 0; i < length-1; i++)
+ for (int i = 0;i < length-1;i++)
     {
       for (int j = 0; j < length-i-1; j++){
          if (values[j] > values[j+1])
@@ -60,9 +110,9 @@ public class Sorting{
 
   public int[] ShellSort(int[] values){
 
-    int interval = shellSortInterval(values.Length);
+    int interval = shellSortIntervalbyShell(values.Length);
 
-    for (int i = interval; i > 0; i = shellSortInterval(i)){
+    for (int i = interval; i > 0; i = shellSortIntervalbyShell(i)){
       for(int j = 0; j<i; j++){  
         // create subset
         int[] subset = new int[values.Length/i];
@@ -82,11 +132,58 @@ public class Sorting{
     return values;
   } // end method ShellSort
 
-  // intervals can be created in different ways, Shell propose just to divide by 2
+  // algoritm from description from site:
+//https://eduinf.waw.pl/inf/alg/003_sort/0012.php
+  // author: Jerzy Walaszek
+  public int[] ShellSort2(int[] values){
+
+    int interval = shellSortIntervalbyKnuth(values.Length);
+
+    // it works while interval is bigger then 0; we will change interval after each loop pass
+    while(interval > 0)
+   {
+    // j - index needed to check all valurs in interval
+    // x - last value to swap in the end
+    // i - index of sorted list 
+    for(int j = values.Length- interval - 1; j >= 0; j--)
+   {
+      int x = values[j];
+      int i = j + interval;
+      while((i < values.Length) && (x > values[i]))
+      {
+        values[i - interval] = values[i];
+        i += interval;
+      }
+      values[i - interval] = x;
+    }
+    interval = shellSortIntervalbyKnuth(interval);
+  }
+    return values;
+    } // end method ShellSort2
+  
+  // ShellSort: intervals can be created in different ways, Shell proposed just to divide by 2
   private int 
-shellSortInterval(int length){
+shellSortIntervalbyShell(int length){
     return length/2;
   }
+
+  // ShellSort: intervals can be created in different ways, Donald Knuth proposed this way
+  private int 
+shellSortIntervalbyKnuth(int length, bool initialInterval = false){
+    if (initialInterval == true){
+      int h = 0;
+      for (int i = 1; i < length;i++){
+         h = 3*i+1;
+      }
+      h = h/9;
+      if (h == 0)
+        h = 1;
+      return h;
+    } else
+       return length/3;
+  }
+
+  
   private int[] swap(int[] values, int index1, int index2){
     try{
     

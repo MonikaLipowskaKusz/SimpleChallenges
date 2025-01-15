@@ -1,12 +1,15 @@
 Simple coding challenges to get my brain to work again. 
 
-Challengers:
-1. Binary Tree
-2. Fibonacci (iteractive, recursive)
+DONE:
+1. Math Problems (Fibonacci)
+2. Sorting (Bubble sort, Insert Sort, Bucket Sort, Shell Sort,
+3. Data Structures (Binary Tree)
 
-Ideas:
-- Sorting (bubble sort, Insert Sort, Bucket Sort, Shell Sort, Quick Sort, Heap Sort)
-- Catching exceptions
-- Stack
-- NWD, NWW
-- convert a given Roman numeral value to an integer value
+TODO:
+2. Sorting (Quick Sort, Heap Sort)
+1. MathProblems (NWD, NWW, Roman to Arabic, prime numbers, Pascal's triangle)
+3. Data structures (Stack, List, Queue, Map)
+4. Designs patterns
+...
+- add interface/inheritance to handle user communication
+- add exception handling
