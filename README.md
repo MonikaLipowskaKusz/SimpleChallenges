@@ -7,7 +7,7 @@ DONE:
 
 TODO:
 2. Sorting (Quick Sort, Heap Sort)
-1. MathProblems (NWD, NWW, Roman to Arabic, prime numbers, Pascal's triangle)
+1. MathProblems (NWD, NWW, Roman to Arabic, prime numbers, Pascal's triangle, visual of Binary Tree?)
 3. Data structures (Stack, List, Queue, Map)
 4. Designs patterns
 ...
